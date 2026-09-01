@@ -1,0 +1,88 @@
+﻿<div class="register-container">
+    <p-card>
+        <ng-template pTemplate="header">
+            <div class="register-header">
+                <h2>Register</h2>
+            </div>
+        </ng-template>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input pInputText type="text" id="firstName" formControlName="firstName"
+                        placeholder="Enter first name" />
+                    <div class="error-message"
+                        *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+                        First name is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input pInputText type="text" id="lastName" formControlName="lastName"
+                        placeholder="Enter last name" />
+                    <div class="error-message"
+                        *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+                        Last name is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input pInputText type="email" id="email" formControlName="email" placeholder="Enter email" />
+                <div class="error-message"
+                    *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                    <span *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</span>
+                    <span *ngIf="registerForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input pInputText type="password" id="password" formControlName="password"
+                        placeholder="Enter password" />
+                    <div class="error-message"
+                        *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                        Password is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input pInputText type="password" id="confirmPassword" formControlName="confirmPassword"
+                        placeholder="Confirm password" />
+                    <div class="error-message"
+                        *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+                        Confirm password is required
+                    </div>
+                    <div class="error-message" *ngIf="registerForm.errors?.['passwordMismatch']">
+                        Passwords do not match
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="clinicName">Clinic Name</label>
+                <input pInputText type="text" id="clinicName" formControlName="clinicName"
+                    placeholder="Enter clinic name (optional)" />
+            </div>
+
+            <div class="form-group">
+                <label for="clinicAddress">Clinic Address</label>
+                <input pInputText type="text" id="clinicAddress" formControlName="clinicAddress"
+                    placeholder="Enter clinic address (optional)" />
+            </div>
+
+            <div class="button-group">
+                <button pButton type="submit" label="Register" [disabled]="registerForm.invalid"></button>
+            </div>
+
+            <div class="login-link">
+                <p>Already have an account? <a (click)="navigateToLogin()">Login here</a></p>
+            </div>
+        </form>
+    </p-card>
+</div>
