@@ -1,9 +1,10 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { UsersLayoutComponent } from './containers/users-layout/users-layout.component';
 import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
 
-export const usersRoutes: Routes = [
+const routes: Routes = [
     {
         path: '',
         component: UsersLayoutComponent,
@@ -24,3 +25,9 @@ export const usersRoutes: Routes = [
         ]
     }
 ];
+
+@NgModule({
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
+})
+export class UsersRoutingModule { }
