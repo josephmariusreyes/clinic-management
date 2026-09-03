@@ -1,3 +1,0 @@
-export const environment = {
-    primeNgLicense: 'eyJpZCI6ImQ5MGI0NDc4LWNjYjctNGEwMi1iNGM2LTg2NzhhMWY3NGVjZCIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3ODgzMTE4OTAsImV4cCI6MTgxOTg0Nzg5MH0.kit-j24rtulBsArrRwXNnSAnFH9Ih4h1jacFc1cfxgeoWDxScP3HpXyWga_jWgUqRWrlefUoBChW0mPkMnP3Bg'
-};

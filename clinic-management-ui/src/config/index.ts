@@ -1,0 +1,1 @@
+export const TEST_CONFIG = import.meta.env.TEST_CONFIG;
