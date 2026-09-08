@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UsersLayoutComponent } from './containers/users-layout/users-layout.component';
+import { PublicLayoutComponent } from '../../shared/layout/public-layout/public-layout.component';
 import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: UsersLayoutComponent,
+        component: PublicLayoutComponent,
         children: [
             {
                 path: 'login',
@@ -18,8 +18,8 @@ const routes: Routes = [
                 component: RegisterComponent
             },
             {
-                path: '',
-                redirectTo: 'login',
+                path:'',
+                redirectTo: 'user/login',
                 pathMatch: 'full'
             }
         ]
