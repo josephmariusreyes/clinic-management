@@ -1,9 +1,6 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    //"outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -16,7 +13,21 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022"
+    "module": "ES2022",
+    "paths": {
+      "@spartan-ng/helm/card": [
+        "./src/app/shared/spartan-ui/card/src/index.ts"
+      ],
+      "@spartan-ng/helm/utils": [
+        "./src/app/shared/spartan-ui/utils/src/index.ts"
+      ],
+      "@spartan-ng/helm/input": [
+        "./src/app/shared/spartan-ui/input/src/index.ts"
+      ],
+      "@spartan-ng/helm/button": [
+        "./src/app/shared/spartan-ui/button/src/index.ts"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "standalone": false,
