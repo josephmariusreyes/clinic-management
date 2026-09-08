@@ -17,6 +17,18 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'doctors',
+        loadChildren: () => import('./features/doctors/doctors.module').then(m => m.DoctorsModule)
+    },
+    {
+        path: 'patients',
+        loadChildren: () => import('./features/patients/patients.module').then(m => m.PatientsModule)
+    },
+    {
+        path: 'super-admin',
+        loadChildren: () => import('./features/super-admin/super-admin.module').then(m => m.SuperAdminModule)
+    },
+    {
         path: '',
         redirectTo: 'user/login',
         pathMatch: 'full'
