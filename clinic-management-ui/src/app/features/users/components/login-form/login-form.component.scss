@@ -1,0 +1,12 @@
+.login-submit {
+    background-color: #a8d5ad;
+    color: #173b20;
+    font-weight: 600;
+    transition: background-color 160ms ease, box-shadow 160ms ease;
+    cursor:pointer;
+
+    &:hover:not(:disabled) {
+        background-color: #91c999;
+        box-shadow: 0 4px 12px rgba(65, 125, 76, 0.18);
+    }
+}

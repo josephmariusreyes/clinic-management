@@ -1,0 +1,48 @@
+<form class="space-y-6" [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
+    <div class="flex flex-col gap-1 mt-3">
+        <label class="text-sm font-medium" for="email">Email address</label>
+        <input
+            hlmInput
+            id="email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            [attr.aria-invalid]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched"
+        />
+        @if (loginForm.controls['email'].touched && loginForm.controls['email'].hasError('required')) {
+            <p class="text-xs text-destructive" role="alert">Email is required.</p>
+        } @else if (loginForm.controls['email'].touched && loginForm.controls['email'].hasError('email')) {
+            <p class="text-xs text-destructive" role="alert">Enter a valid email address.</p>
+        }
+    </div>
+
+    <div class="flex flex-col gap-1 mt-3">
+        <div class="flex items-center justify-between ">
+            <label class="text-sm font-medium" for="password">Password</label>
+            <a class="text-xs font-medium text-emerald-700 hover:underline" href="/user/forgot-password">
+                Forgot password?
+            </a>
+        </div>
+        <input
+            hlmInput
+            id="password"
+            type="password"
+            formControlName="password"
+            autocomplete="current-password"
+            placeholder="Enter your password"
+        />
+        @if (loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')) {
+            <p class="text-xs text-destructive" role="alert">Password is required.</p>
+        }
+    </div>
+
+    <button hlmBtn class="login-submit h-11 w-full py-3 mt-5" type="submit" >
+        Sign in
+    </button>
+
+    <p class="text-center text-sm text-muted-foreground">
+        New to the clinic?
+        <a class="font-semibold text-emerald-700 hover:underline" routerLink="/user/register">Create an account</a>
+    </p>
+</form>

@@ -4,17 +4,21 @@ import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users-routing.module';
 import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HlmInputImports } from '../../shared/spartan-ui/input/src';
 import { HlmButtonImports } from '../../shared/spartan-ui/button/src';
 
 @NgModule({
     declarations: [
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        LoginFormComponent
     ],
     imports: [
         CommonModule,
         UsersRoutingModule,
+        ReactiveFormsModule,
         ...HlmInputImports,
         ...HlmButtonImports
     ]
