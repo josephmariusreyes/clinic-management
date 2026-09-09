@@ -1,0 +1,64 @@
+<form class="space-y-6" [formGroup]="registerForm()" (ngSubmit)="submit()" novalidate>
+    <div class="mt-3 flex flex-col gap-1">
+        <label class="text-sm font-medium" for="email">Email address</label>
+        <input
+            hlmInput
+            id="email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            [attr.aria-invalid]="registerForm().controls['email'].invalid && registerForm().controls['email'].touched"
+        />
+        @if (registerForm().controls['email'].touched && registerForm().controls['email'].hasError('required')) {
+            <p class="text-xs text-destructive" role="alert">Email is required.</p>
+        } @else if (registerForm().controls['email'].touched && registerForm().controls['email'].hasError('email')) {
+            <p class="text-xs text-destructive" role="alert">Enter a valid email address.</p>
+        }
+    </div>
+
+    <div class="mt-3 flex flex-col gap-1">
+        <label class="text-sm font-medium" for="password">Password</label>
+        <input
+            hlmInput
+            id="password"
+            type="password"
+            formControlName="password"
+            autocomplete="new-password"
+            placeholder="Create a password"
+            [attr.aria-invalid]="registerForm().controls['password'].invalid && registerForm().controls['password'].touched"
+        />
+        @if (registerForm().controls['password'].touched && registerForm().controls['password'].hasError('required')) {
+            <p class="text-xs text-destructive" role="alert">Password is required.</p>
+        } @else if (registerForm().controls['password'].touched && registerForm().controls['password'].hasError('pattern')) {
+            <p class="text-xs text-destructive" role="alert">Use a capital letter, number, and special character.</p>
+        }
+    </div>
+
+    <div class="mt-3 flex flex-col gap-1">
+        <label class="text-sm font-medium" for="confirm-password">Confirm password</label>
+        <input
+            hlmInput
+            id="confirm-password"
+            type="password"
+            formControlName="confirmPassword"
+            autocomplete="new-password"
+            placeholder="Re-enter your password"
+            [attr.aria-invalid]="registerForm().controls['confirmPassword'].touched && (registerForm().controls['confirmPassword'].invalid || registerForm().hasError('passwordMismatch'))"
+        />
+        @if (registerForm().controls['confirmPassword'].touched && registerForm().controls['confirmPassword'].hasError('required')) {
+            <p class="text-xs text-destructive" role="alert">Please confirm your password.</p>
+        } @else if (registerForm().controls['confirmPassword'].touched && registerForm().hasError('passwordMismatch')) {
+            <p class="text-xs text-destructive" role="alert">Passwords do not match.</p>
+        }
+    </div>
+
+    <button hlmBtn class="register-submit mt-6 h-11 w-full py-3" type="submit">
+        Create account
+    </button>
+
+    <p class="mt-3 text-center text-sm text-muted-foreground">
+        Already have an account?
+        <a class="font-semibold text-emerald-700 hover:underline" routerLink="/user/login">Sign in</a>
+    </p>
+</form>
