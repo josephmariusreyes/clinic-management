@@ -4,6 +4,7 @@ Base URL: `http://localhost:4200`
 
 ## URLs
 
+Login
 - `http://localhost:4200/`
 	- Redirects to `/user/login`
 - `http://localhost:4200/login`
