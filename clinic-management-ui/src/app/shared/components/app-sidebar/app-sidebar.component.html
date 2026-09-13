@@ -1,0 +1,48 @@
+<aside class="sidebar" [class.sidebar--collapsed]="collapsed">
+  <div class="sidebar__brand">
+    <a routerLink="/" class="sidebar__brand-link" aria-label="Clinic management home">
+      <span class="sidebar__brand-mark" aria-hidden="true">+</span>
+      <span class="sidebar__brand-copy">
+        <strong>Clinic Desk</strong>
+        <small>Care operations</small>
+      </span>
+    </a>
+  </div>
+
+  <nav class="sidebar__nav" aria-label="Main navigation">
+    <p class="sidebar__label">Workspace</p>
+    <a
+      *ngFor="let link of primaryLinks"
+      class="sidebar__link"
+      [routerLink]="link.route"
+      routerLinkActive="sidebar__link--active"
+      [routerLinkActiveOptions]="{ exact: link.route === '/' }"
+      [attr.title]="collapsed ? link.label : null"
+    >
+      <span class="sidebar__icon" aria-hidden="true">{{ link.icon }}</span>
+      <span class="sidebar__link-text">{{ link.label }}</span>
+    </a>
+
+    <p class="sidebar__label sidebar__label--secondary">System</p>
+    <a
+      *ngFor="let link of secondaryLinks"
+      class="sidebar__link"
+      [routerLink]="link.route"
+      routerLinkActive="sidebar__link--active"
+      [attr.title]="collapsed ? link.label : null"
+    >
+      <span class="sidebar__icon" aria-hidden="true">{{ link.icon }}</span>
+      <span class="sidebar__link-text">{{ link.label }}</span>
+    </a>
+  </nav>
+
+  <div class="sidebar__footer">
+    <div class="sidebar__profile" [attr.title]="collapsed ? 'Dr. Alex Morgan' : null">
+      <span class="sidebar__avatar" aria-hidden="true">AM</span>
+      <span class="sidebar__profile-copy">
+        <strong>Dr. Alex Morgan</strong>
+        <small>Administrator</small>
+      </span>
+    </div>
+  </div>
+</aside>

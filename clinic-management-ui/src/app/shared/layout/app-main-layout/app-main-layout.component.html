@@ -1,1 +1,10 @@
-<p>app-main-layout works!</p>
+<div class="app-shell">
+	<app-sidebar [collapsed]="sidebarCollapsed" />
+	<main class="app-shell__main">
+		<app-site-header (menuToggle)="toggleSidebar()" />
+		<div class="app-shell__content">
+			<router-outlet />
+			<ng-content />
+		</div>
+	</main>
+</div>
